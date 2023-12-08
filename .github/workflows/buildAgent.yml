@@ -41,7 +41,9 @@ jobs:
         env:
           MY_SECRET: ${{ secrets.KUBE_CONFIG_DATA }}
         run: |
+          mkdir $HOME/.kube/
           echo $KUBE_CONFIG_DATA | base64 --decode > $HOME/.kube/config
+          kubectl config use-context default
 
 
       - name: Deploy pod
