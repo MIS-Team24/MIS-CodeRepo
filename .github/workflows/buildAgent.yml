@@ -38,11 +38,9 @@ jobs:
           sudo mv kubectl /usr/local/bin/
 
       - name: Configure kubectl
-        env:
-          MY_SECRET: ${{ secrets.KUBE_CONFIG_DATA }}
         run: |
-          mkdir -p $HOME/.kube/config
-          echo $KUBE_CONFIG_DATA | base64 --decode > $HOME/.kube/config/kubeconfig.yaml
+          mkdir $HOME/.kube/config
+          echo ${{ env.MY_VARIABLE }}  > $HOME/.kube/config
           sudo chown $USER:$USER $HOME/.kube/config
           kubectl config use-context default
     
