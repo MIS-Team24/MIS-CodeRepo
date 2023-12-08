@@ -27,23 +27,23 @@ jobs:
           push: true
           tags: ezzops/mis-build-agent:${{ github.sha }}
   deploy:
-    name: deploy to cluster
+    needs: build
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@master
-      - name: deploy to cluster
-        uses: steebchen/kubectl@v2.0.0
-        with: # defaults to latest kubectl binary version
-        # Arguments
-        # command – required: The command you want to run, without kubectl, e.g. get pods
-        
-        # config – required: A base64-encoded kubeconfig file with credentials for Kubernetes to access the cluster. You can get it by running the following command:
-        
-        # cat $HOME/.kube/config | base64
-        # version: The kubectl version with a 'v' prefix, e.g. v1.21.0. It defaults to the latest kubectl binary version available.
-        
-        # binaries-url: The url to download the binaries from. It defaults to the official release page if empty.         
-          
-          config: ${{ secrets.KUBE_CONFIG_DATA }}
-          command: set image --record deployment/my-app container=ezzops/mis-build-agent:${{ github.sha }}
+      - name: Install kubectl
+        run: |
+          curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+          chmod +x kubectl
+          sudo mv kubectl /usr/local/bin/
+
+      - name: Configure kubectl
+        run: |
+          echo ${{ secrets.KUBE_CONFIG_DATA }} | base64 --decode > $HOME/.kube/config
+
+      - name: Deploy pod
+        run: |
+          - name: Deploy pod
+            run: |
+              kubectl create pod --image=ezzops/mis-build-agent
 
