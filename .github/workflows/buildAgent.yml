@@ -38,12 +38,16 @@ jobs:
           sudo mv kubectl /usr/local/bin/
 
       - name: Configure kubectl
+        env:
+          MY_SECRET: ${{ secrets.KUBE_CONFIG_DATA }}
         run: |
-          echo ${{ secrets.KUBE_CONFIG_DATA }} | base64 --decode > $HOME/.kube/config
+          echo $KUBE_CONFIG_DATA | base64 --decode > $HOME/.kube/config
+
 
       - name: Deploy pod
         run: |
           - name: Deploy pod
             run: |
               kubectl create pod --image=ezzops/mis-build-agent
+
 
