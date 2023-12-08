@@ -42,7 +42,6 @@ jobs:
             mkdir -p $HOME/.kube
             echo ${{ env.MY_VARIABLE }} > $HOME/.kube/config
             sudo chown $USER:$USER $HOME/.kube/config
-            kubectl config use-context default
 
       - name: Deploy pod
         run: |
