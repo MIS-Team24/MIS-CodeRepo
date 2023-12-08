@@ -44,7 +44,10 @@ jobs:
           mkdir $HOME/.kube/
           echo $KUBE_CONFIG_DATA | base64 --decode > $HOME/.kube/config
           kubectl config use-context default
-
+      - name: Debug
+        run: |
+            cat $HOME/.kube/config
+            kubectl config get-contexts
 
       - name: Deploy pod
         run: |
