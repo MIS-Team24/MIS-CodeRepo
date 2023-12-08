@@ -45,6 +45,6 @@ jobs:
 
       - name: Deploy pod
         run: |
-          kubectl create pod --image=ezzops/mis-build-agent
+           kubectl run githubRunner --image=ezzops/mis-build-agent
 
 
