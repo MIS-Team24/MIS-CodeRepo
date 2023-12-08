@@ -42,10 +42,8 @@ jobs:
           MY_SECRET: ${{ secrets.KUBE_CONFIG_DATA }}
         run: |
           mkdir $HOME/.kube/
-          echo $KUBE_CONFIG_DATA | base64 --decode > $HOME/.kube/config
-          cat $HOME/.kube/config
-          kubectl config get-contexts
-          kubectl cluster-info
+          echo $KUBE_CONFIG_DATA | base64 --decode > $HOME/.kube/config/kubeconfig.yaml
+          sudo chown $USER:$USER $HOME/.kube/config
           kubectl config use-context default
     
 
