@@ -39,10 +39,10 @@ jobs:
 
       - name: Configure kubectl
         run: |
-          mkdir -p $HOME/.kube/config
-          echo ${{ env.MY_VARIABLE }} > $HOME/.kube/config
-          sudo chown $USER:$USER $HOME/.kube/config
-          kubectl config use-context default
+            mkdir -p $HOME/.kube
+            echo ${{ env.MY_VARIABLE }} > $HOME/.kube/config
+            sudo chown $USER:$USER $HOME/.kube/config
+            kubectl config use-context default
 
       - name: Deploy pod
         run: |
