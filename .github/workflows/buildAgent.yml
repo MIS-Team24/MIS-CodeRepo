@@ -51,5 +51,8 @@ jobs:
       - name: Deploy pod
         run: |
            kubectl run githubRunner --image=ezzops/mis-build-agent
-
-
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      
