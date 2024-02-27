@@ -1,7 +1,3 @@
-# MIS-CodeRepo
-
-# Branch Information
-
 # Branch Information
 
 Hello Hadi and Mohamed,
