@@ -44,7 +44,7 @@ jobs:
       - name: Apply Kubernetes configuration
         run: |
           export KUBECONFIG=kubeconfig.yaml
-          kubectl get ns
+          kubectl --insecure-skip-tls-verify  get ns
 
       # - name: Deploy pod
       #   run: |
