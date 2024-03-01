@@ -39,7 +39,7 @@ jobs:
 
       - uses: actions-hub/kubectl@master
         with:
-          args: get pods
+          args: --insecure-skip-tls-verify get pods
 
       # - name: Deploy pod
       #   run: |
