@@ -57,3 +57,25 @@
 - Screen 11: Schedule Appointment
   - Description: This screen allows users to schedule an appointment with a designer. Users can select a date and time slot from the designer's availability calendar and provide additional details about the appointment.
   - Features: Calendar for selecting date and time, appointment details form, confirmation button.
+
+
+-------------
+
+User Screen: Schedule Appointment
+
+Description: This screen allows users to schedule an appointment with a designer. Users can select a date and time slot from the designer's availability calendar and provide additional details about the appointment to ensure a tailored and efficient consultation session.
+
+Features:
+
+Calendar for Selecting Date and Time: An interactive calendar displays the designer's available dates and times, enabling users to choose a slot that works best for them.
+Appointment Details Form: A form where users can enter specific details about the appointment, such as the type of design consultation needed, any specific questions or topics they want to cover, and any relevant files or inspiration images.
+Confirmation Button: After selecting a time slot and filling out the appointment details, users can confirm their appointment with a click. They'll receive an automatic confirmation notification with the appointment details for their records.
+Designer Screen: Manage Appointments
+
+Description: This interface provides designers with a comprehensive toolset for managing their scheduled appointments and personal availability. It enables designers to view, confirm, and reschedule appointments, as well as update their availability calendar to reflect their current schedule.
+
+Features:
+
+Update Availability Calendar: Designers can update their schedule by marking times they are unavailable and adding new slots when they are available for appointments. This feature includes options for setting recurring availability and quickly adjusting for special days or times.
+Confirm Appointments: Allows designers to confirm incoming appointment requests. This feature could include functionality for sending automated confirmation messages to users, enhancing communication efficiency.
+View All Upcoming Appointments: A detailed view of all scheduled appointments, presented in a calendar or list format. This overview provides quick access to appointment details, including user information, appointment date and time, and any specific notes or requests made by the user.
